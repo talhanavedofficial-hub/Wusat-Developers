@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wusat Developers | Architectural Excellence in Islamabad</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fcf9f8",
+                    "secondary-container": "#fddaac",
+                    "on-secondary-fixed": "#281800",
+                    "secondary": "#735a36",
+                    "tertiary": "#221f18",
+                    "on-tertiary-fixed": "#1e1b15",
+                    "surface-container-high": "#eae7e7",
+                    "tertiary-fixed": "#e8e2d7",
+                    "inverse-surface": "#313030",
+                    "surface-tint": "#3d6660",
+                    "on-surface-variant": "#414847",
+                    "deep-emerald": "#103B36",
+                    "primary": "#002521",
+                    "primary-container": "#103b36",
+                    "glass-fill": "rgba(255, 255, 255, 0.4)",
+                    "secondary-fixed-dim": "#e2c195",
+                    "on-surface": "#1b1b1b",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a4cfc8",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#594320",
+                    "outline": "#717977",
+                    "on-tertiary-container": "#a29c93",
+                    "on-primary-fixed-variant": "#254d48",
+                    "on-background": "#1b1b1b",
+                    "surface-variant": "#e5e2e1",
+                    "champagne-gold": "#C8A97E",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-dim": "#dcd9d9",
+                    "inverse-on-surface": "#f3f0ef",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#c0ebe3",
+                    "error": "#ba1a1a",
+                    "charcoal": "#1B1B1B",
+                    "secondary-fixed": "#ffddb0",
+                    "soft-beige": "#EFE8DD",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c0c8c6",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#7ca59e",
+                    "tertiary-container": "#37342d",
+                    "on-primary-fixed": "#00201d",
+                    "on-tertiary-fixed-variant": "#4a463e",
+                    "luxury-white": "#F8F6F2",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "tertiary-fixed-dim": "#ccc6bb",
+                    "surface-container": "#f0eded",
+                    "on-secondary-container": "#785e39",
+                    "surface": "#fcf9f8",
+                    "inverse-primary": "#a4cfc8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-edge": "4rem",
+                    "section-lg": "8rem",
+                    "section-xp": "10rem",
+                    "gutter": "2rem",
+                    "stack-xl": "4rem",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond", "serif"],
+                    "body-md": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "display-xl": ["EB Garamond", "serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "headline-lg": ["EB Garamond", "serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["EB Garamond", "serif"],
+                    "display-lg": ["EB Garamond", "serif"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "display-xl": ["96px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #fcf9f8; scroll-behavior: smooth; overflow-x: hidden; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { backdrop-filter: blur(20px); border: 1px solid rgba(200, 169, 126, 0.2); }
+        .image-reveal { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-reveal:hover .image-reveal { transform: scale(1.05); }
+        .parallax-element { will-change: transform; transition: transform 0.1s linear; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-edge py-stack-md backdrop-blur-md bg-glass-fill border-b border-champagne-gold/20 shadow-sm">
+<div class="text-headline-md font-headline-md font-bold tracking-tight text-primary">Wusat Developers</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-label-caps font-label-caps text-primary border-b border-champagne-gold pb-1" href="#">Developments</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-champagne-gold transition-all duration-500" href="#">Institutional</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-champagne-gold transition-all duration-500" href="#">Leadership</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-champagne-gold transition-all duration-500" href="#">Philosophy</a>
+</div>
+<button class="bg-primary text-luxury-white px-8 py-3 text-label-caps font-label-caps tracking-widest hover:bg-deep-emerald transition-all active:scale-95 duration-300">
+            Private Consultation
+        </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="container mx-auto px-margin-edge grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-6 z-10">
+<span class="text-label-caps font-label-caps text-champagne-gold mb-6 block tracking-[0.3em]">ESTABLISHED PRESTIGE</span>
+<h1 class="text-display-lg md:text-display-xl font-display-xl text-primary leading-tight mb-8">
+                    Crafting Islamabad’s <br/>Most <span class="italic">Prestigious</span> Addresses
+                </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl mb-12">
+                    Luxury developments designed for visionaries, investors, and future-forward living. We don't just build structures; we curate legacies.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary text-luxury-white px-10 py-5 text-label-caps font-label-caps hover:bg-deep-emerald transition-all">Explore Projects</button>
+<button class="border border-champagne-gold text-primary px-10 py-5 text-label-caps font-label-caps hover:bg-champagne-gold hover:text-luxury-white transition-all">Book Private Consultation</button>
+</div>
+</div>
+<div class="lg:col-span-6 relative h-[600px] lg:h-[800px] mt-12 lg:mt-0">
+<!-- Stacked Imagery -->
+<div class="absolute right-0 top-0 w-4/5 h-4/5 overflow-hidden shadow-2xl z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic architectural shot of a modern luxury glass skyscraper in Islamabad under a golden hour sky. The lighting is warm and ethereal, highlighting the sharp, clean lines of the building's facade against the lush Margalla Hills in the distance. The mood is sophisticated and evokes a sense of high-end real estate and architectural prestige." src="https://lh3.googleusercontent.com/aida/AP1WRLt3pe_R0CvInsEo86qqxlf9OMM4RA6Jy2jkAGxce-ULxCxUs45dZa0HfWvhQGZlL0L3bHr3-i-2dNrC5fdv_5mzkRsS9kzm-F5IaM3sZJJZMlquKTOlsGHzgRlTP8oBSJtv4JK4cFkBxYTVperj5uB8mz-bRegoEfxj0n6fVDS0RV1ijN8n_Fkeqtz8vQugncnvMPAy6zIMrbsaMo0jWXXqZerdo6fFnoAE9S9WAQjpfZLhglFivapQFIU"/>
+</div>
+<div class="absolute left-0 bottom-0 w-3/5 h-3/5 overflow-hidden shadow-2xl z-20 border-[12px] border-surface-bright">
+<img class="w-full h-full object-cover" data-alt="A high-end luxury residential interior featuring a minimalist open-plan living room with expansive floor-to-ceiling windows. The decor includes neutral tones, soft beige fabrics, and champagne gold accents on lighting fixtures. The atmosphere is serene and ultra-exclusive, illuminated by soft natural daylight pouring in from the surrounding skyline view." src="https://lh3.googleusercontent.com/aida/AP1WRLuOVACsBoQ27DfnoY9hd1TNtNvhcHZqKgduH9pHRC1aSZqNVjDWGgjddU6a8yht3Y2D7HaJrQhEYKW3qW02Qp8wIIzCv0B4-m5NOCWqIXtUZ0-lnmZR9pS9WZlYjhNwBTuXBb3J-OFs9hsBq2r0V6FN0Cz1vU_eswZ8dc4YFG_6o5o3tcCPB5BKmrknH6ql_ZToloJaUcYA6zM84OK6gxYY-juAQ-OxcK3oOkWMU-6h1SxvRfU6Fe6BzgE"/>
+</div>
+<!-- Floating Glass Metrics -->
+<div class="absolute top-1/2 -left-12 transform -translate-y-1/2 z-30 flex flex-col gap-4">
+<div class="glass-card bg-glass-fill p-6 flex flex-col items-center min-w-[180px]">
+<span class="text-headline-md font-headline-md text-primary">12+</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Premium Developments</span>
+</div>
+<div class="glass-card bg-glass-fill p-6 flex flex-col items-center min-w-[180px]">
+<span class="text-headline-md font-headline-md text-primary">PKR 15B+</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Investment Portfolio</span>
+</div>
+<div class="glass-card bg-glass-fill p-6 flex flex-col items-center min-w-[180px]">
+<span class="text-headline-md font-headline-md text-primary">98%</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Investor Satisfaction</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- About Section -->
+<section class="py-section-xp">
+<div class="container mx-auto px-margin-edge">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover image-reveal" data-alt="An abstract architectural photograph focusing on geometric patterns and shadows of a contemporary commercial building. The composition utilizes high-contrast lighting to create deep blacks and brilliant whites, emphasizing the structural integrity and design precision. The overall aesthetic is minimalist, editorial, and sophisticated, reflecting architectural mastery." src="https://lh3.googleusercontent.com/aida/AP1WRLtBQsYObHEYVMFWCdetaJMMwuTi9w_5UcPRTpaXSWMpdBudcIWQoX7Ik14hqd0xlVpBX95lYhpvr-pjBIwhlxhzYd0XYmt8tIaERIMGgid0ODSshk9Dm5kuT8PLfk08iyrLg5nnrRIWrt3UFyAZw4DVLzcT31GBJtG6cWDau5XZ_4HGFxz4R-1wTx2VYB_zh5UnsGK73WecR2pM5CClpacwbDEDCNkF0ZvaoWnaeh_OWt4Elv9o6iXCxvA"/>
+</div>
+<div class="absolute -bottom-12 -right-12 w-48 h-48 border border-champagne-gold/30 hidden lg:block"></div>
+</div>
+<div class="space-y-10">
+<span class="text-label-caps font-label-caps text-champagne-gold tracking-widest">OUR PHILOSOPHY</span>
+<h2 class="text-headline-lg font-headline-lg text-primary leading-tight">Designed Beyond Conventional Development</h2>
+<div class="w-24 h-px bg-champagne-gold"></div>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                        At Wusat, we believe that architecture is a dialogue between the earth and the sky. Our projects in Islamabad are more than just square footage; they are curated experiences designed for those who recognize the value of nuance, light, and structural harmony.
+                    </p>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                        By integrating sustainable practices with world-class design consultants, we deliver assets that appreciate both in financial value and cultural significance.
+                    </p>
+<a class="inline-flex items-center gap-4 text-label-caps font-label-caps text-primary hover:text-champagne-gold transition-colors" href="#">
+                        DISCOVER THE VISION <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-section-xp bg-surface-container-low">
+<div class="container mx-auto px-margin-edge">
+<div class="flex justify-between items-end mb-24">
+<div>
+<span class="text-label-caps font-label-caps text-champagne-gold mb-4 block">PORTFOLIO</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Iconic Landmarks</h2>
+</div>
+<div class="hidden md:block">
+<a class="text-label-caps font-label-caps border-b border-primary" href="#">VIEW ALL PROJECTS</a>
+</div>
+</div>
+<div class="space-y-stack-xl">
+<!-- Project 1 -->
+<div class="group relative flex flex-col md:flex-row gap-0 overflow-hidden bg-surface-bright shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="md:w-3/5 h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A majestic photograph of a residential luxury tower in a metropolitan area during the blue hour. The building's glass surfaces reflect a deep indigo sky while interior lights cast a warm, golden glow through the windows. The composition is angled to highlight the building's verticality and modern geometric silhouette, creating an aura of supreme luxury and success." src="https://lh3.googleusercontent.com/aida/AP1WRLvl5Tne8Jsb-E7i6rss4qE5WxCvjlyFoqj473POZHSmAk0EP1UoVwdreltDyi8eWyEa5CB-KBiphVkiI5lvnoq2AX3t1-xAsgTGw1WKONwOLlQKZUG140E3ShXd0jKrieDvj-YyoHWJOcMVbWlBOpVRa04cE3OqjMi0wtISldq90Elfx0kGP86hrxFWRWBQuyFDY-VLneWejLmadtTVOmK3YzUIJlyZrh3cYKAya26A5c3qmAKU_q9ZDQ0"/>
+</div>
+<div class="md:w-2/5 p-12 lg:p-20 flex flex-col justify-center">
+<span class="text-label-caps font-label-caps text-champagne-gold mb-6">F-7, ISLAMABAD</span>
+<h3 class="text-headline-md font-headline-md text-primary mb-6">The Zenith Residences</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-10">
+                            A vertical masterpiece offering 360-degree views of the Margallas, featuring infinity pools, private elevators, and a curated concierge service.
+                        </p>
+<ul class="space-y-4 mb-12">
+<li class="flex items-center gap-3 text-label-caps font-label-caps text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span> 24% ANNUAL ROI
+                            </li>
+<li class="flex items-center gap-3 text-label-caps font-label-caps text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span> HANDOVER Q4 2025
+                            </li>
+</ul>
+<button class="self-start border border-primary text-primary px-8 py-3 text-label-caps font-label-caps hover:bg-primary hover:text-luxury-white transition-all">PROJECT DETAILS</button>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group relative flex flex-col md:flex-row-reverse gap-0 overflow-hidden bg-surface-bright shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="md:w-3/5 h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="An expansive aerial view of a corporate luxury development with tiered terrace gardens and modern glass architectural wings. The lighting is bright and crisp, capturing the high-key aesthetic of a premium business hub. Manicured landscapes and water features are visible in the foreground, reflecting the upscale nature of the development and its investment potential." src="https://lh3.googleusercontent.com/aida/AP1WRLssIqxRQC1-lkLKHSGRKK9hLI2kAlU6fDBnJjWX7AzX_tGjdRam9CrDwOWjVoxnR-QHFln4Oxuge-Odvb1VB1nPZbXCyfod5_ZaI0fBaWgJ9sN4vzcYBX3c6ZoE5YEGGSxHKczocgFwtw4UiB1xYUp058Z1yl0_yYH2TtEm1zBZxVH2NSERJs-2XNC2qhR5XdpXOdWq5VikkN90wM7z8uCvcyTqYWeAimoIYdctwQ4POAiLOIPEbLmW0w"/>
+</div>
+<div class="md:w-2/5 p-12 lg:p-20 flex flex-col justify-center">
+<span class="text-label-caps font-label-caps text-champagne-gold mb-6">G-11 CORPORATE DISTRICT</span>
+<h3 class="text-headline-md font-headline-md text-primary mb-6">Solitaire Business Hub</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-10">
+                            The future of work. Platinum-certified green building with smart automation, premium retail wings, and executive lounges.
+                        </p>
+<ul class="space-y-4 mb-12">
+<li class="flex items-center gap-3 text-label-caps font-label-caps text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span> 90% SOLD OUT
+                            </li>
+<li class="flex items-center gap-3 text-label-caps font-label-caps text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span> LEED GOLD CERTIFIED
+                            </li>
+</ul>
+<button class="self-start border border-primary text-primary px-8 py-3 text-label-caps font-label-caps hover:bg-primary hover:text-luxury-white transition-all">PROJECT DETAILS</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Wusat: Animated Stats -->
+<section class="py-section-xp">
+<div class="container mx-auto px-margin-edge">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-gutter text-center">
+<div class="p-8 border-r border-champagne-gold/10 last:border-0">
+<span class="block text-display-lg font-display-xl text-primary mb-2">15</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Years of Excellence</span>
+</div>
+<div class="p-8 border-r border-champagne-gold/10 last:border-0">
+<span class="block text-display-lg font-display-xl text-primary mb-2">18%</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Avg. Annual Appreciation</span>
+</div>
+<div class="p-8 border-r border-champagne-gold/10 last:border-0">
+<span class="block text-display-lg font-display-xl text-primary mb-2">1M+</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">SQ. FT. Delivered</span>
+</div>
+<div class="p-8 border-r border-champagne-gold/10 last:border-0">
+<span class="block text-display-lg font-display-xl text-primary mb-2">100%</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Legal Compliance</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Luxury Lifestyle Showcase (Apple-Inspired) -->
+<section class="py-section-xp bg-charcoal overflow-hidden text-luxury-white">
+<div class="container mx-auto px-margin-edge mb-20">
+<div class="max-w-3xl">
+<span class="text-label-caps font-label-caps text-champagne-gold mb-6 block">EXPERIENCE</span>
+<h2 class="text-display-lg font-display-xl leading-tight">Luxury is not built. <br/><span class="italic text-champagne-gold">It is curated.</span></h2>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-8 px-margin-edge pb-20 no-scrollbar snap-x">
+<div class="min-w-[450px] md:min-w-[600px] snap-center">
+<div class="aspect-video relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxury rooftop infinity pool at dusk, overlooking the illuminated cityscape of Islamabad. The water reflects the warm yellow lights of the surrounding high-rise buildings. The poolside area is styled with minimalist white sun loungers and sleek glass railings. The atmosphere is one of ultimate serenity, exclusivity, and cinematic modern living." src="https://lh3.googleusercontent.com/aida/AP1WRLvzWwOTiLcTeGHUtqObkA-QZp7GiYiuiVoiyHH2rAVJfPIyMjWoxo7R2Oj4mSh6DTFJ_Sk54_HbiS2crHlV5HKR6uBOfIh1OeahJ_sUq6ZZbOLIvt_j8aWb5hf6M9Dv38MWqJ0nbYvqPuY4XY4E9Jqpr_Twzxezt5sK3fYLnaUhhI2tEKRmA6MN4zhdEycEJvdG3o61jL4aLU0_-5rKdlWj0eqnscerr-vNWoO8Q0xwK4E9iLW58I-LaYg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
+<span class="text-headline-md font-headline-md">Infinity Sanctuary</span>
+</div>
+</div>
+</div>
+<div class="min-w-[450px] md:min-w-[600px] snap-center">
+<div class="aspect-video relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An ultra-modern private cinema room designed for a luxury residence. The room features plush velvet reclining seats in charcoal grey, sophisticated dimmable wall lighting, and a massive screen showing a high-contrast cinematic visual. The design is sleek, acoustically treated, and exudes a sense of high-end private luxury and leisure." src="https://lh3.googleusercontent.com/aida/AP1WRLsjuVwCGmZGlK19_bQeV6ASsdtfn2r42KtoSUE6Djto_JLWk-cqeygVQxkeHVzhviN2myZJPvZf4p-bxt-dtevw2GqxvHrM5kv2JPb9GgzVmxFLkOnhQqo1DEe-qu7sNjJmNZOpfjIIGqJFqoEBX-fwkHooQeh9PwTuJHRapqwgTMlC4wybJIDUhHQiKEOhJTUU1fdjYWvKS6zC_TiIDikupyyABi55Kgucv9gD-9HxaGQRfDz9kDfGlQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
+<span class="text-headline-md font-headline-md">Private Screening</span>
+</div>
+</div>
+</div>
+<div class="min-w-[450px] md:min-w-[600px] snap-center">
+<div class="aspect-video relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A grand luxury lobby with a massive triple-height ceiling and marble flooring. A statement chandelier made of gold and glass hangs from the center. Large floor-to-ceiling windows reveal a manicured courtyard. The design is opulent but refined, with a focus on scale, light, and premium materials, evoking a sense of powerful arrival." src="https://lh3.googleusercontent.com/aida/AP1WRLsJo7F8w7gOqyI0svlnDN_D6Z590uxSX_m-mR3NAfRGPQD1LG0v75fX1qVc_QALS8Sru9a1oapJ3NVY1-OjEIGI9Rvft96mvIoq7GCZNpK7EjPvabPIu4WK4WhTpm83KLDT9CgudLIjVfxXQWZj_-j-h2VQCRd_9Bm9HcI4fFoBEG9PFNLQSuwy6mEBiywrnHpZdoN-Eq4M5rMUYCM8mqPB9awv5QUFaSPfAVCjomxXzgU5r0v7FW4Rtg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
+<span class="text-headline-md font-headline-md">Grand Atriums</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership Section -->
+<section class="py-section-xp bg-deep-emerald text-luxury-white">
+<div class="container mx-auto px-margin-edge">
+<div class="text-center mb-24">
+<span class="text-label-caps font-label-caps text-champagne-gold mb-4 block">THE STEWARDS</span>
+<h2 class="text-headline-lg font-headline-lg">Visionary Leadership</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Leader 1 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 mb-8">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a senior male executive in a well-tailored navy suit, standing in front of a blurred modern architectural background. The lighting is soft and flattering, highlighting a look of quiet confidence and expertise. The visual style is that of a high-end corporate editorial, emphasizing leadership and institutional trust." src="https://lh3.googleusercontent.com/aida/AP1WRLvAJWhVcJe8wRcnGOXQW2YdvhJqY32y7fnw67Qy441Uu6pN9qLFLMlEVU4f1dYKSWsTbGW_WGINKeW4Q46l0yIe4o20eIXA9rsja2HyFKnCC6dgaO06zZxs5v6YbkTp2ScDxZq9pdpfn_bhlb6UXqvN6mk9i-CS83_A1qUibzlXf0M28Ew-ExLcfCtOGV7c5tT962-FPUAz-whZA0_iiPC_3xEKRg7H-EtZaIGBq2ciDFOJxtp3zb8QMYg"/>
+</div>
+<h3 class="text-headline-md font-headline-md mb-2">Sheikh Omar Wusat</h3>
+<p class="text-label-caps font-label-caps text-champagne-gold">Chairman &amp; Chief Architect</p>
+</div>
+<!-- Leader 2 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 mb-8">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a female executive in a minimalist business attire, set against a high-key office environment. Her expression is focused and professional. The image quality is crisp with a shallow depth of field, emphasizing her presence and the institutional weight of the developer's leadership team." src="https://lh3.googleusercontent.com/aida/AP1WRLsi6bMVgOUUVWqR7kiocalgcqUW9rXHpjDXOr6OznBNvwckuBjvr0OMZueEvp3FKwaKR9TLx3AtxmrhWGmS8LQzadeqEmTcGy6rx22YubBMrJtxBFMZhYulIkIg53hl4rJ1eGVagIbqhFN-mnmyjkqZ-7Gp9eXEIcTMiSmcdYjxmp6WWUZHBpjwTUSLpo_949k42n65JcwQLnX-Deewwv3mYqBQktr2cH16ZQ2fO1RbQofn2jEN3G5dq4o"/>
+</div>
+<h3 class="text-headline-md font-headline-md mb-2">Amna Qureshi</h3>
+<p class="text-label-caps font-label-caps text-champagne-gold">Director of Global Investments</p>
+</div>
+<!-- Leader 3 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 mb-8">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male real estate development expert, dressed in a sharp grey suit. The background features a subtle view of a contemporary building design. The mood is authoritative and sophisticated, highlighting the individual's role in shaping the skyline of Islamabad and managing multi-billion rupee portfolios." src="https://lh3.googleusercontent.com/aida/AP1WRLsQ0Hs_YISR2VugpbvDLXSa2bUnWUpjtHUYLd_7NhLY_K84ohIV2TyA--sw5lhgF66dzHoGi3VoxI2AZnJ2c6lBsy8z-l-yWSeB-mINJPj-q75PocVsa8wTMzyYWA8_sg5Zi78RM0IsE69m543vzVFBX6ngLVrqCjAWVQ7hJQpDUwizoocGcyS_3CqL2C6P9B7T4zgO6V1yb8Umbb5NeCeo4oXikKGkqiMGM5m7ms-_PCb4bpKZ9M3UUg"/>
+</div>
+<h3 class="text-headline-md font-headline-md mb-2">Zain Malik</h3>
+<p class="text-label-caps font-label-caps text-champagne-gold">Chief Operations Officer</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Investment & Trust -->
+<section class="py-section-xp">
+<div class="container mx-auto px-margin-edge">
+<div class="bg-surface-bright border border-champagne-gold/20 p-12 md:p-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<span class="text-label-caps font-label-caps text-champagne-gold mb-6 block">INSTITUTIONAL GRADE</span>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-10 leading-tight">A Foundation of Unwavering Transparency</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-champagne-gold text-4xl">verified_user</span>
+<div>
+<h4 class="text-body-lg font-bold text-primary mb-2">Full CDA Approval</h4>
+<p class="text-body-md text-on-surface-variant">Every project carries clear title and is fully sanctioned by the Capital Development Authority before a single brick is laid.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-champagne-gold text-4xl">account_balance</span>
+<div>
+<h4 class="text-body-lg font-bold text-primary mb-2">Escrow-Backed Development</h4>
+<p class="text-body-md text-on-surface-variant">Investor funds are managed through protected escrow accounts to ensure construction milestones are met with absolute precision.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="bg-surface-container p-8 flex flex-col justify-center border-t-2 border-champagne-gold">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-4">LEGAL STATUS</span>
+<span class="text-body-lg font-bold">100% CLEARANCE</span>
+</div>
+<div class="bg-surface-container p-8 flex flex-col justify-center border-t-2 border-champagne-gold">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-4">DELIVERY RATE</span>
+<span class="text-body-lg font-bold">ON-TIME TRACKING</span>
+</div>
+<div class="bg-surface-container p-8 flex flex-col justify-center border-t-2 border-champagne-gold">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-4">TAX STATUS</span>
+<span class="text-body-lg font-bold">FBR COMPLIANT</span>
+</div>
+<div class="bg-surface-container p-8 flex flex-col justify-center border-t-2 border-champagne-gold">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-4">RATING</span>
+<span class="text-body-lg font-bold">AAA INSTITUTIONAL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Consultation CTA -->
+<section class="py-section-xp relative overflow-hidden bg-primary text-luxury-white">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="A blurred architectural background featuring a sleek glass facade of a modern headquarters. The lighting is cool-toned and professional, providing a subtle texture and sense of scale without distracting from the foreground content. The overall look is modern, minimalist, and high-end corporate." src="https://lh3.googleusercontent.com/aida/AP1WRLseQ_0IDWDG-_UBVG69FUzdPygDUBVTMDIg2eNngGa5_7NYHFP6m6wXE1Ss4GBmCTZY37YSwsB6liBvtK8cUsf0WzPbtqgEjrkxDXQxiWArtFt6b7-yZzq6fdenVBRchf18a9AnWl0G9i-5m2-cxy63t05AT-b-QU6kzTRAOTJeAxH7AGWmD5s-7AUSvrU2cvO_ajh46PPcQ0KgCtOvmOEAIM4ygbtkDFz3Kjru9f-n-J5fRC33jAXY9w"/>
+</div>
+<div class="container mx-auto px-margin-edge relative z-10">
+<div class="max-w-4xl mx-auto text-center mb-16">
+<h2 class="text-display-lg font-display-xl mb-6">Secure Your Position</h2>
+<p class="text-body-lg font-body-lg text-on-primary-container">Speak with our investment consultants to explore bespoke real estate opportunities in Pakistan’s capital.</p>
+</div>
+<div class="max-w-3xl mx-auto bg-luxury-white p-12 text-primary shadow-2xl">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-label-caps font-label-caps">Full Name</label>
+<input class="border-0 border-b border-soft-beige focus:border-champagne-gold focus:ring-0 bg-transparent py-4 text-body-md outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-caps font-label-caps">Phone Number</label>
+<input class="border-0 border-b border-soft-beige focus:border-champagne-gold focus:ring-0 bg-transparent py-4 text-body-md outline-none" placeholder="+92 300 000 0000" type="tel"/>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-label-caps font-label-caps">Investment Interest</label>
+<select class="border-0 border-b border-soft-beige focus:border-champagne-gold focus:ring-0 bg-transparent py-4 text-body-md outline-none">
+<option>Residential Luxury</option>
+<option>Commercial Portfolio</option>
+<option>Corporate Hubs</option>
+<option>Strategic Land Acquisition</option>
+</select>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-label-caps font-label-caps">Your Message</label>
+<textarea class="border-0 border-b border-soft-beige focus:border-champagne-gold focus:ring-0 bg-transparent py-4 text-body-md outline-none" placeholder="I am interested in..." rows="3"></textarea>
+</div>
+<button class="md:col-span-2 bg-primary text-luxury-white py-6 text-label-caps font-label-caps hover:bg-deep-emerald transition-all mt-6">SEND INQUIRY</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full px-margin-edge py-section-lg grid grid-cols-1 md:grid-cols-12 gap-gutter bg-surface-bright border-t border-champagne-gold/10 pt-section-lg">
+<div class="md:col-span-4">
+<div class="text-headline-md font-headline-md text-primary mb-8">Wusat Developers</div>
+<p class="text-body-md text-on-surface-variant max-w-xs mb-10">
+                Architectural excellence and institutional-grade real estate developments in Islamabad, Pakistan.
+            </p>
+<div class="flex gap-6">
+<a class="text-primary hover:text-champagne-gold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-primary hover:text-champagne-gold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-primary hover:text-champagne-gold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-label-caps font-label-caps text-primary mb-8">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Developments</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Institutional</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Leadership</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Philosophy</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-label-caps font-label-caps text-primary mb-8">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Investment Terms</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Investor Relations</a></li>
+<li><a class="text-on-surface-variant hover:text-champagne-gold transition-colors text-body-md" href="#">Press Office</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="text-label-caps font-label-caps text-primary mb-8">Newsletter</h4>
+<p class="text-body-md text-on-surface-variant mb-6">Exclusive previews of new launches.</p>
+<div class="flex">
+<input class="bg-surface-container border-0 py-4 px-6 flex-grow focus:ring-0 text-body-md" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-luxury-white px-8 py-4 text-label-caps">JOIN</button>
+</div>
+</div>
+<div class="md:col-span-12 mt-20 text-label-caps font-label-caps text-on-surface-variant/60 flex flex-col md:flex-row justify-between items-center border-t border-champagne-gold/5 pt-12">
+<span>© 2024 Wusat Developers. Architectural Excellence.</span>
+<span>DESIGNED BY THE ARCHITECTS OF DIGITAL EXPERIENCE</span>
+</div>
+</footer>
+<script>
+        // Smooth parallax for hero images
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImages = document.querySelectorAll('.image-reveal');
+            heroImages.forEach((img, index) => {
+                const speed = 0.05 + (index * 0.02);
+                img.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Horizontal scroll button/indicator logic could go here
+    </script>
+</body></html>
